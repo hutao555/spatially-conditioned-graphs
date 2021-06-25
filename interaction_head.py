@@ -13,9 +13,6 @@ class MultiBranchFusion():
         self.cardinality = cardinality
 
         sub_repr_size = int(representation_size / cardinality)
-        assert sub_repr_size * cardinality == representation_size, \
-            "The given representation size should be divisible by cardinality"
-
         self.fc_1 = nn.Sequential([
             nn.Linear(appearance_size, sub_repr_size)
             for _ in range(cardinality)
