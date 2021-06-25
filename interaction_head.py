@@ -1,7 +1,7 @@
 import paddle
 import paddle.nn.functional as F
 from paddle import nn
-class MultiBranchFusion(Module):
+class MultiBranchFusion():
     """
     Multi-branch fusion module
     """
@@ -28,7 +28,7 @@ class MultiBranchFusion(Module):
             nn.Linear(sub_repr_size, representation_size)
             for _ in range(cardinality)
         ])
-    def forward(self, appearance: Tensor, spatial: Tensor) -> Tensor:
+    def forward(self, appearance, spatial):
         return F.relu(paddle.stack([
             fc_3(F.relu(fc_1(appearance) * fc_2(spatial)))
             for fc_1, fc_2, fc_3
