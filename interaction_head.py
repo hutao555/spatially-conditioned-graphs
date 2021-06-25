@@ -4,17 +4,6 @@ from paddle import nn
 class MultiBranchFusion(Module):
     """
     Multi-branch fusion module
-
-    Parameters:
-    -----------
-    appearance_size: int
-        Size of the appearance features
-    spatial_size: int
-        Size of the spatial features
-    representation_size: int
-        Size of the intermediate representations
-    cardinality: int
-        The number of homogeneous branches
     """
     def __init__(self,
         appearance_size: int, spatial_size: int,
